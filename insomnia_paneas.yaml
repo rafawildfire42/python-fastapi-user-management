@@ -1,0 +1,879 @@
+_type: export
+__export_format: 4
+__export_date: 2024-01-08T21:06:08.785Z
+__export_source: insomnia.desktop.app:v2023.5.6
+resources:
+  - _id: req_dce8ffc860c541198a88640bc8221af5
+    parentId: fld_ff1d1545032948deb10bfdfc117be41c
+    modified: 1704719864687
+    created: 1704674854334
+    url: "{{ _.url }}/users-and-groups"
+    name: Users and Groups
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers:
+      - name: User-Agent
+        value: Insomnia/2023.5.6
+        id: pair_c0ceabf1d96342ab8744d3921010e9fc
+      - id: pair_2454d1659f0c4ba19dc94d2ae685d814
+        name: Authorization
+        value: Bearer {{ _.token }}
+        description: ""
+    authentication: {}
+    metaSortKey: -1704674854334
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_ff1d1545032948deb10bfdfc117be41c
+    parentId: wrk_062f79b943de4ab69d88d7f4190eb335
+    modified: 1704674852023
+    created: 1704674852023
+    name: Permissions Groups - Relations
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1704674852023
+    _type: request_group
+  - _id: wrk_062f79b943de4ab69d88d7f4190eb335
+    parentId: null
+    modified: 1704600894541
+    created: 1704600885515
+    name: Paneas - Users Management Project - Rafael
+    description: ""
+    scope: collection
+    _type: workspace
+  - _id: req_1e16afb6a874475d87bbfdd9c85f993b
+    parentId: fld_ff1d1545032948deb10bfdfc117be41c
+    modified: 1704719863056
+    created: 1704674878831
+    url: "{{ _.url }}/permissions-and-groups/"
+    name: Permissions and Groups
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers:
+      - name: User-Agent
+        value: Insomnia/2023.5.6
+        id: pair_3a5afc7e49e84239b91c36e49213f570
+      - id: pair_903741cb97a347648cb0d29e896c4ce2
+        name: Authorization
+        value: Bearer {{ _.token }}
+        description: ""
+    authentication: {}
+    metaSortKey: -1704663196068
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_206b3de90bbb4019b1b8bdbdab8c1abd
+    parentId: fld_36a2c2fc30ca4c5a8e18e0e091149fc1
+    modified: 1704719860930
+    created: 1704651537802
+    url: "{{ _.url }}/routes"
+    name: List - Routes
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers:
+      - name: User-Agent
+        value: Insomnia/2023.5.6
+        id: pair_63ca4f9cd88c4597ac6d1d3a68b97172
+      - id: pair_261dd931eff344088a857ce51478291e
+        name: Authorization
+        value: Bearer {{ _.token }}
+        description: ""
+    authentication: {}
+    metaSortKey: -1704651537802
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_36a2c2fc30ca4c5a8e18e0e091149fc1
+    parentId: wrk_062f79b943de4ab69d88d7f4190eb335
+    modified: 1704651534936
+    created: 1704651534936
+    name: Routes
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1704651534936
+    _type: request_group
+  - _id: req_fb0428c2919d4d05be997f754fbceb48
+    parentId: fld_36a2c2fc30ca4c5a8e18e0e091149fc1
+    modified: 1704719859507
+    created: 1704652763540
+    url: "{{ _.url }}/routes/1"
+    name: Retrieve - Routes
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers:
+      - name: User-Agent
+        value: Insomnia/2023.5.6
+        id: pair_23c3a4fdd28e463f9435e9485b3f8611
+      - id: pair_42a892aeb43240659232717c183a9fde
+        name: Authorization
+        value: Bearer {{ _.token }}
+        description: ""
+    authentication: {}
+    metaSortKey: -1704642934490
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_67ddc9a7ab594dbb9eaf2b6196e75451
+    parentId: fld_36a2c2fc30ca4c5a8e18e0e091149fc1
+    modified: 1704719857951
+    created: 1704652996178
+    url: "{{ _.url }}/routes/4"
+    name: Delete - Routes
+    description: ""
+    method: DELETE
+    body: {}
+    parameters: []
+    headers:
+      - name: User-Agent
+        value: Insomnia/2023.5.6
+        id: pair_81715312fff84affbc88450057fe738b
+      - id: pair_42df8de4ccb74228b62ba863803f9d6b
+        name: Authorization
+        value: Bearer {{ _.token }}
+        description: ""
+    authentication: {}
+    metaSortKey: -1704638632834
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_88c8cb3fc2c344e3b9c3aefb06543e49
+    parentId: fld_36a2c2fc30ca4c5a8e18e0e091149fc1
+    modified: 1704734337385
+    created: 1704653577186
+    url: "{{ _.url }}/routes"
+    name: Create - Routes
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"path": "/my-route",
+        	"needs_permission": true
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_83856f83caff42f8932deca00a93cf55
+      - name: User-Agent
+        value: Insomnia/2023.5.6
+        id: pair_168cd69007c445d299de90489ddb13fb
+      - id: pair_fd2bc879ffea40409b664a22a212353f
+        name: Authorization
+        value: Bearer {{ _.token }}
+        description: ""
+    authentication: {}
+    metaSortKey: -1704636482006
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_c6994886a1e24616a8c2225796b02724
+    parentId: fld_36a2c2fc30ca4c5a8e18e0e091149fc1
+    modified: 1704719854362
+    created: 1704656039178
+    url: "{{ _.url }}/routes/6"
+    name: Update - Routes
+    description: ""
+    method: PUT
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"needs_permission": true
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_e7dfd85e101143048e28a28a32424e04
+      - name: User-Agent
+        value: Insomnia/2023.5.6
+        id: pair_c0b3436c80244bc683c8531a493727c4
+      - id: pair_892ac05f14bd47aa82f9fbc8271db899
+        name: Authorization
+        value: Bearer {{ _.token }}
+        description: ""
+    authentication: {}
+    metaSortKey: -1704635406592
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_88926c9f880746359c8d05f764fe42e8
+    parentId: fld_d1d296cf65174445872ea8e953364a2f
+    modified: 1704719852324
+    created: 1704662323425
+    url: "{{ _.url }}/permissions"
+    name: List - Permissions
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers:
+      - id: pair_aec8adb3dfd941c6ade52ad2b07b0bc3
+        name: Authorization
+        value: Bearer {{ _.token }}
+        description: ""
+    authentication: {}
+    metaSortKey: -1704651537802
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_d1d296cf65174445872ea8e953364a2f
+    parentId: wrk_062f79b943de4ab69d88d7f4190eb335
+    modified: 1704662323423
+    created: 1704662323423
+    name: Permissions
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1704642931565
+    _type: request_group
+  - _id: req_e2f20a0c400f409ab1909038e21a4fbc
+    parentId: fld_d1d296cf65174445872ea8e953364a2f
+    modified: 1704719850557
+    created: 1704662323429
+    url: "{{ _.url }}/permissions/1"
+    name: Retrieve - Permissions
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers:
+      - name: User-Agent
+        value: Insomnia/2023.5.6
+        id: pair_0c82d76a75f8461f80eda8d955903b53
+      - id: pair_55c7a5a91a4f4b4684abae26c227754a
+        name: Authorization
+        value: Bearer {{ _.token }}
+        description: ""
+    authentication: {}
+    metaSortKey: -1704642934490
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_9a9ded1b41ae4187928ffbbf0b37341e
+    parentId: fld_d1d296cf65174445872ea8e953364a2f
+    modified: 1704719849038
+    created: 1704662323432
+    url: "{{ _.url }}/permissions/43"
+    name: Delete - Permissions
+    description: ""
+    method: DELETE
+    body: {}
+    parameters: []
+    headers:
+      - name: User-Agent
+        value: Insomnia/2023.5.6
+        id: pair_314bcd65aad242a4af0ce45554e651c8
+      - id: pair_d61ab9a913ee41639930fd4624772e24
+        name: Authorization
+        value: Bearer {{ _.token }}
+        description: ""
+    authentication: {}
+    metaSortKey: -1704638632834
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_b8a7122dd1354b4c924a704b3397bb16
+    parentId: fld_d1d296cf65174445872ea8e953364a2f
+    modified: 1704719846753
+    created: 1704662323435
+    url: "{{ _.url }}/permissions"
+    name: Create - Permissions
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"route_id": 13,
+        	"action": "create"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_fde9cf4affc247e787a2f50d5e8404eb
+      - name: User-Agent
+        value: Insomnia/2023.5.6
+        id: pair_3ffece8ceafd4cceadbcbc4cd0f9d481
+      - id: pair_a735e1c4e22e46609e9d6d5f7cba682a
+        name: Authorization
+        value: Bearer {{ _.token }}
+        description: ""
+    authentication: {}
+    metaSortKey: -1704636482006
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_7f81275c0b63464dab888324fc92ccb0
+    parentId: fld_d1d296cf65174445872ea8e953364a2f
+    modified: 1704719844399
+    created: 1704662323438
+    url: "{{ _.url }}/permissions/3"
+    name: Update - Permissions
+    description: ""
+    method: PUT
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"action": "update"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_440594f7e5004f208e79c1dc2ff83e16
+      - name: User-Agent
+        value: Insomnia/2023.5.6
+        id: pair_1ee787a167424ba2a1f8f8276293355c
+      - id: pair_8c6ca85e7946418bb932528b36d3e600
+        name: Authorization
+        value: Bearer {{ _.token }}
+        description: ""
+    authentication: {}
+    metaSortKey: -1704635406592
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_3f6d371e316842679d87f67ad1ebe619
+    parentId: fld_fd7df3620fd148e7bc84dda9ebf825a3
+    modified: 1704719842663
+    created: 1704664714032
+    url: "{{ _.url }}/permissions-groups"
+    name: List - Permissions Groups
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers:
+      - name: User-Agent
+        value: Insomnia/2023.5.6
+        id: pair_e8640e9d51d84b98bdf488f29ebcb5b3
+      - id: pair_2c2eca03acad48808c6b756e5b04c835
+        name: Authorization
+        value: Bearer {{ _.token }}
+        description: ""
+    authentication: {}
+    metaSortKey: -1704651537802
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_fd7df3620fd148e7bc84dda9ebf825a3
+    parentId: wrk_062f79b943de4ab69d88d7f4190eb335
+    modified: 1704664714029
+    created: 1704664714029
+    name: Permissions Groups
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1704638629879.5
+    _type: request_group
+  - _id: req_2d8a29dff5994dd2a2934cf4771d22c7
+    parentId: fld_fd7df3620fd148e7bc84dda9ebf825a3
+    modified: 1704719841124
+    created: 1704680881688
+    url: "{{ _.url }}/permissions-groups-user/4"
+    name: List - User/Permissions Groups
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers:
+      - name: User-Agent
+        value: Insomnia/2023.5.6
+        id: pair_399162d6f7414e05b88d2ccfa827552e
+      - id: pair_9cee2d091f1141c7b2906dbbcd69cf2f
+        name: Authorization
+        value: Bearer {{ _.token }}
+        description: ""
+    authentication: {}
+    metaSortKey: -1704647236146
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_0ed648383d984e7299da64d97f4c34f1
+    parentId: fld_fd7df3620fd148e7bc84dda9ebf825a3
+    modified: 1704719839618
+    created: 1704664714035
+    url: "{{ _.url }}/permissions-groups/1"
+    name: Retrieve - Permissions Groups
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers:
+      - name: User-Agent
+        value: Insomnia/2023.5.6
+        id: pair_1f2b62bd293c4a979667143e53911b25
+      - id: pair_f0a3aeed55774eceaee0031e6f3c0cd4
+        name: Authorization
+        value: Bearer {{ _.token }}
+        description: ""
+    authentication: {}
+    metaSortKey: -1704642934490
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_d2ece29709c64d70874eceafcc1f66f3
+    parentId: fld_fd7df3620fd148e7bc84dda9ebf825a3
+    modified: 1704719838028
+    created: 1704664714039
+    url: "{{ _.url }}/permissions-groups/43"
+    name: Delete - Permissions Groups
+    description: ""
+    method: DELETE
+    body: {}
+    parameters: []
+    headers:
+      - name: User-Agent
+        value: Insomnia/2023.5.6
+        id: pair_eb88e4a22f4e48258b401e5064bb4743
+      - id: pair_1e9a14ccf974448b9973c8bec9d8f4bc
+        name: Authorization
+        value: Bearer {{ _.token }}
+        description: ""
+    authentication: {}
+    metaSortKey: -1704638632834
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_cb5371d8d33f496fbd1f05368189f9d3
+    parentId: fld_fd7df3620fd148e7bc84dda9ebf825a3
+    modified: 1704719835486
+    created: 1704664714042
+    url: "{{ _.url }}/permissions-groups"
+    name: Create - Permissions Groups
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"name": "custom_user"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_fe0fb7e9ab5f4db1aaf6f8cb951d3c1e
+      - name: User-Agent
+        value: Insomnia/2023.5.6
+        id: pair_de190502b8584cef8b95f60bb7cc72a3
+      - id: pair_55788c51308644f9ad0d77848b4ecb0a
+        name: Authorization
+        value: Bearer {{ _.token }}
+        description: ""
+    authentication: {}
+    metaSortKey: -1704636482006
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_29a36a149f1b4f0cbcbcf30408b82c07
+    parentId: fld_fd7df3620fd148e7bc84dda9ebf825a3
+    modified: 1704719833619
+    created: 1704664714047
+    url: "{{ _.url }}/permissions-groups/1"
+    name: Update - Permissions Groups
+    description: ""
+    method: PUT
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"name": "update"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_13b4122b2d654d468568d6193fa06ae4
+      - name: User-Agent
+        value: Insomnia/2023.5.6
+        id: pair_f010a8ff24ea468bbe27a5956f9a0918
+      - id: pair_16ed0f62e2bb4b6aafdcd434a3c026c8
+        name: Authorization
+        value: Bearer {{ _.token }}
+        description: ""
+    authentication: {}
+    metaSortKey: -1704635406592
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_b40dfb6cc9164d928b1a8432356018e4
+    parentId: fld_313bd4ee0606489a8360e3748012919c
+    modified: 1704719324378
+    created: 1704634331178
+    url: "{{ _.url }}/auth"
+    name: Login - Create Token
+    description: |-
+      Acesso admin
+      username: admin@mail.com
+      password: 123456
+
+      Acesso usuário comum
+      username: user@mail.com
+      password: 123456
+    method: POST
+    body:
+      mimeType: multipart/form-data
+      params:
+        - name: username
+          value: admin@mail.com
+          id: pair_5b252de26303443881605b4d13d90eee
+        - id: pair_ffba201d417e43909fedb1c75338d77e
+          name: password
+          value: "123456"
+          description: ""
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: multipart/form-data
+      - name: User-Agent
+        value: Insomnia/2023.5.6
+    authentication: {}
+    metaSortKey: -1704634331178
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_313bd4ee0606489a8360e3748012919c
+    parentId: wrk_062f79b943de4ab69d88d7f4190eb335
+    modified: 1704671307381
+    created: 1704634328194
+    name: Authenticate
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1704634328194
+    _type: request_group
+  - _id: req_5dd156e3f6c948ee89b94bb9ee953504
+    parentId: fld_313bd4ee0606489a8360e3748012919c
+    modified: 1704721164353
+    created: 1704639058066
+    url: "{{ _.url }}/auth/refresh-token"
+    name: Refresh Token
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"refresh_token": "{{ _.refresh_token }}"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: Insomnia/2023.5.6
+    authentication: {}
+    metaSortKey: -1704617619040.5
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_3cfb69967c0a401f928183c0f294555d
+    parentId: fld_97aa4ca3deca4957a166a81f13a7fdcb
+    modified: 1704671956379
+    created: 1704600906903
+    url: "{{ _.url }}/users"
+    name: List - Users
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers:
+      - name: User-Agent
+        value: Insomnia/2023.5.6
+        id: pair_78a1465c716b4dd28eae79404b40c702
+      - id: pair_2b019645871744c98b0f46f35b2b06f5
+        name: Authorization
+        value: Bearer {{ _.token }}
+        description: ""
+    authentication: {}
+    metaSortKey: -1704600906903
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_97aa4ca3deca4957a166a81f13a7fdcb
+    parentId: wrk_062f79b943de4ab69d88d7f4190eb335
+    modified: 1704671312373
+    created: 1704600903665
+    name: Users
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1704600903665
+    _type: request_group
+  - _id: req_8f3fe8a9a3c848c189bfc364fe39041e
+    parentId: fld_97aa4ca3deca4957a166a81f13a7fdcb
+    modified: 1704719876911
+    created: 1704600967619
+    url: "{{ _.url }}/users/1"
+    name: Retrieve - Users
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers:
+      - name: User-Agent
+        value: Insomnia/2023.5.6
+        id: pair_84522bdc9ce34ff8a922c7816a5adf60
+      - id: pair_fc4fdcd2a15f4c85bb65723bf1916314
+        name: Authorization
+        value: Bearer {{ _.token }}
+        description: ""
+    authentication: {}
+    metaSortKey: -1704582722062
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_2a3bd7a6eace4b879cc0802a1dcdaeb0
+    parentId: fld_97aa4ca3deca4957a166a81f13a7fdcb
+    modified: 1704719825391
+    created: 1704600986362
+    url: "{{ _.url }}/users"
+    name: Create - Users
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"email": "rafa123@mail.com",
+        	"password": "123456"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_4a84312c4bc843fdb87c7f5137488c16
+      - name: User-Agent
+        value: Insomnia/2023.5.6
+        id: pair_b59d863ab05c48388018c0aff9ea705f
+      - id: pair_3fc755b4ed8940f48125facb7df91478
+        name: Authorization
+        value: Bearer {{ _.token }}
+        description: ""
+    authentication: {}
+    metaSortKey: -1704573629641.5
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_6536cf29dd5442c5828f416262b40e61
+    parentId: fld_97aa4ca3deca4957a166a81f13a7fdcb
+    modified: 1704719827384
+    created: 1704601068102
+    url: "{{ _.url }}/users/1"
+    name: Update - Users
+    description: ""
+    method: PUT
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"email": "teste@mailtest.com"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_99bd5d75054147a4bf8a13a00c85b59a
+      - name: User-Agent
+        value: Insomnia/2023.5.6
+        id: pair_251075500a5b4e6ebf8a0165f8aa261b
+      - id: pair_f1cf1682a6b74c09a8b7979c82109a96
+        name: Authorization
+        value: Bearer {{ _.token }}
+        description: ""
+    authentication: {}
+    metaSortKey: -1704569083431.25
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_b4590bd0340244b19039bd643b1a6113
+    parentId: fld_97aa4ca3deca4957a166a81f13a7fdcb
+    modified: 1704719829057
+    created: 1704601074146
+    url: "{{ _.url }}/users/1"
+    name: Delete - Users
+    description: ""
+    method: DELETE
+    body: {}
+    parameters: []
+    headers:
+      - name: User-Agent
+        value: Insomnia/2023.5.6
+        id: pair_993e14fe1274453d9c8207fa256eb560
+      - id: pair_b0ced5a6394c455387f24dda4c50619d
+        name: Authorization
+        value: Bearer {{ _.token }}
+        description: ""
+    authentication: {}
+    metaSortKey: -1704566810326.125
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: env_622b068f4383a03a4babd294cf5951f279c1bd73
+    parentId: wrk_062f79b943de4ab69d88d7f4190eb335
+    modified: 1704645531431
+    created: 1704600885526
+    name: Base Environment
+    data:
+      url: http://localhost:8000
+      token: "{% response 'body', 'req_b40dfb6cc9164d928b1a8432356018e4',
+        'b64::JC5hY2Nlc3NfdG9rZW4=::46b', 'never', 60 %}"
+      refresh_token: "{% response 'body', 'req_b40dfb6cc9164d928b1a8432356018e4',
+        'b64::JC5yZWZyZXNoX3Rva2Vu::46b', 'never', 60 %}"
+    dataPropertyOrder:
+      "&":
+        - url
+        - token
+        - refresh_token
+    color: null
+    isPrivate: false
+    metaSortKey: 1704600885526
+    _type: environment
+  - _id: jar_622b068f4383a03a4babd294cf5951f279c1bd73
+    parentId: wrk_062f79b943de4ab69d88d7f4190eb335
+    modified: 1704600885529
+    created: 1704600885529
+    name: Default Jar
+    cookies: []
+    _type: cookie_jar

@@ -1,0 +1,28 @@
+[tool.poetry]
+name = "paneas-project"
+version = "0.1.0"
+description = "Projeto para fazer gerenciamento de usuarios"
+authors = ["rafael <rafaondjango@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+uvicorn = "^0.25.0"
+fastapi = "^0.108.0"
+SQLAlchemy = "^2.0.25"
+alembic = "^1.13.1"
+psycopg2-binary = "^2.9.9"
+python-decouple = "^3.8"
+python-jose = "^3.3.0"
+passlib = "^1.7.4"
+python-multipart = "^0.0.6"
+pydantic = {extras = ["email"], version = "^2.5.3"}
+requests = "^2.31.0"
+ipdb = "^0.13.13"
+celery = "^5.3.6"
+Jinja2 = "^3.1.2"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
