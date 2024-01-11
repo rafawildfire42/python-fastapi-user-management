@@ -3,6 +3,5 @@
   "dockerComposeFile": ["docker-compose.yml"],
   "service": "app",
   "workspaceFolder": "/app",
-  "forwardPorts": [8000],
-  "runServices": ["postgres", "rabbitmq"]
+  "forwardPorts": [8000]
 }
