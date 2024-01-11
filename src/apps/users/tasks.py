@@ -64,6 +64,7 @@ async def send_email(receiver: str):
             content={"detail": "Error while sending email."},
         )
 
+print(rabbit_mq_host)
 app = Celery('tasks', backend='rpc://',
              broker=f'pyamqp://guest@{rabbit_mq_host}//')
 app.conf.update(imports=['users.crud'])

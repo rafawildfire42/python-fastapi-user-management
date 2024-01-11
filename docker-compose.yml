@@ -41,7 +41,21 @@ services:
       - postgres
       - rabbitmq
     container_name: fastapi-celery-worker
+        poetry run uvicorn src.main:app --host 0.0.0.0 --port 8000
+      "
 
+  celeryworker:
+    image: paneas
+    depends_on:
+      - postgres
+      - rabbitmq
+    container_name: fastapi-celery-worker
+
+    command: >
+      bash -c "
+        export PYTHONPATH=/app/src:$PYTHONPATH &&
+        poetry run celery --workdir /app/src/apps/users -A tasks worker --pool=solo -l debug
+      "
     command: >
       bash -c "
         export PYTHONPATH=/app/src:$PYTHONPATH &&
