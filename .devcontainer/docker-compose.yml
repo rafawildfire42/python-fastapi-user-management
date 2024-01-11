@@ -27,7 +27,7 @@ services:
     container_name: fastapi-app
     environment:
       - POSTGRES_HOST=postgres
-      - RABBITMQ_HOST=rabbitmq
+      - RABBIT_MQ_HOST=rabbitmq
     ports:
       - "8000:8000"
     command: >
