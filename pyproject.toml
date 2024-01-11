@@ -20,6 +20,7 @@ requests = "^2.31.0"
 ipdb = "^0.13.13"
 celery = "^5.3.6"
 Jinja2 = "^3.1.2"
+pytest = "^7.4.4"
 
 [tool.poetry.dev-dependencies]
 

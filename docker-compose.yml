@@ -17,7 +17,7 @@ services:
       - 5672:5672
     container_name: fastapi-rabbitmq
 
-  usermanagement:
+  app:
     image: paneas
     depends_on:
       - postgres
