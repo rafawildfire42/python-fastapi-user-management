@@ -6,7 +6,6 @@
 	// Update the 'dockerComposeFile' list if you have more compose files or use different names.
 	// The .devcontainer/docker-compose.yml file contains any overrides you need/want to make.
 	"dockerComposeFile": [
-		"../docker-compose.yml",
 		"docker-compose.yml"
 	],
 
@@ -28,7 +27,8 @@
 	"customizations": {
 		"vscode": {
 			"extensions": [
-				"ms-python.autopep8"
+				"ms-azuretools.vscode-docker",
+				"ms-python.python"
 			]
 		}
 	}
