@@ -3,9 +3,9 @@ services:
     image: postgres:latest
     container_name: fastapi-postgres
     environment:
-      - POSTGRES_USER=admin
-      - POSTGRES_PASSWORD=paneas
-      - POSTGRES_DB=main
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PW}
+      - POSTGRES_DB=${POSTGRES_DB}
     ports:
       - "5432:5432"
     volumes:
@@ -24,8 +24,8 @@ services:
       - rabbitmq
     container_name: fastapi-app
     environment:
-      - POSTGRES_HOST=postgres
-      - RABBIT_MQ_HOST=rabbitmq
+      - POSTGRES_HOST=${POSTGRES_HOST}
+      - RABBIT_MQ_HOST=${RABBIT_MQ_HOST}
     volumes:
       - ..:/workspaces:cached
     ports:

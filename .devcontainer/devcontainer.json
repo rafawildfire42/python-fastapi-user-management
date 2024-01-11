@@ -21,7 +21,12 @@
 	// "features": {},
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	"forwardPorts": [8000, 5432]
+	"forwardPorts": [8000, 5432],
+	
+	"remoteEnv": {
+		"POSTGRES_HOST": "postgres",
+		"RABBIT_MQ_HOST": "rabbitmq"
+	}
 
 	// Uncomment the next line if you want start specific services in your Docker Compose config.
 	// "runServices": [],
