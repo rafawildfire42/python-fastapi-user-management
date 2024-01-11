@@ -2,13 +2,10 @@ services:
   postgres:
     image: postgres:latest
     container_name: fastapi-postgres
-    env_file:
-      - .env
     environment:
-      - POSTGRES_USER=${POSTGRES_USER}
-      - POSTGRES_PW=${POSTGRES_PW}
-      - POSTGRES_DB=${POSTGRES_DB}
-      - POSTGRES_HOST=${POSTGRES_HOST}
+      - POSTGRES_USER=admin
+      - POSTGRES_PW=paneas
+      - POSTGRES_DB=main
     ports:
       - "5432:5432"
     volumes:
@@ -28,6 +25,9 @@ services:
       - postgres
       - rabbitmq
     container_name: fastapi-app
+    environment:
+      - POSTGRES_HOST=postgres
+      - RABBITMQ_HOST=rabbitmq
     ports:
       - "8000:8000"
     command: >
