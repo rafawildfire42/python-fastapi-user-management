@@ -25,7 +25,10 @@
 	
 	"remoteEnv": {
 		"POSTGRES_HOST": "postgres",
-		"RABBIT_MQ_HOST": "rabbitmq"
+		"RABBIT_MQ_HOST": "rabbitmq",
+		"POSTGRES_USER": "admin",
+		"POSTGRES_PASSWORD": "paneas",
+		"POSTGRES_DB": "main"
 	}
 
 	// Uncomment the next line if you want start specific services in your Docker Compose config.
