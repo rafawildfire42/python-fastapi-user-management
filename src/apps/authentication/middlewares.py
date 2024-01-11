@@ -1,17 +1,12 @@
 from fastapi import status
 from fastapi.requests import Request
-from src.apps.authentication.schemas import decode_token
+from src.apps.authentication.schemas import decode_jwt_token
 from fastapi.responses import JSONResponse
 from jose.exceptions import ExpiredSignatureError
 
 
 http_methods = {"GET": "view", "POST": "create",
                 "PUT": "update", "DELETE": "delete"}
-
-InvalidTokenError = JSONResponse(
-    status_code=status.HTTP_401_UNAUTHORIZED,
-    content={"detail": "Invalid token."},
-)
 
 
 async def check_permissions(request: Request, call_next) -> JSONResponse:
@@ -29,7 +24,7 @@ async def check_permissions(request: Request, call_next) -> JSONResponse:
 
     if not is_allowed_access:
         try:
-            access_token_decoded = decode_token(
+            access_token_decoded = decode_jwt_token(
                 access_token.replace("Bearer ", ""))
 
             action = http_methods.get(method)
@@ -49,10 +44,12 @@ async def check_permissions(request: Request, call_next) -> JSONResponse:
                         "detail": "User not authorized to access this resource or action."
                     },
                 )
-        except ExpiredSignatureError:
-            return InvalidTokenError
-        except AttributeError:
-            return InvalidTokenError
+        except:
+            return JSONResponse(
+                status_code=status.HTTP_401_UNAUTHORIZED,
+                content={"detail": "Invalid token or expired."},
+            )
+
 
     response: JSONResponse = await call_next(request)
 

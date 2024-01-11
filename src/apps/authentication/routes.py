@@ -1,8 +1,8 @@
 from .schemas import (
     Token,
     RefreshToken,
-    authenticate_user,
-    decode_token,
+    authenticate_user_and_get_user_id,
+    decode_jwt_token,
     get_access_and_refresh_tokens,
 )
 from typing import Annotated, Any
@@ -79,9 +79,6 @@ async def login_for_access_token(
     ],
     db_session: Any = Depends(get_db),
 ) -> Token | HTTPException:
-    is_user_authentic, user_id = authenticate_user(
-        db_session, form_data.username, form_data.password
-    )
     """
     Login.
 
@@ -91,12 +88,9 @@ async def login_for_access_token(
 
     Returns access_token and refresh_token
     """
-    if not is_user_authentic:
-        raise HTTPException(
-            status_code=status.HTTP_401_UNAUTHORIZED,
-            detail="Incorrect email or password.",
-            headers={"WWW-Authenticate": "Bearer"},
-        )
+    user_id = authenticate_user_and_get_user_id(
+        db_session, form_data.username, form_data.password
+    )
 
     data = get_data(db_session, form_data.username, user_id)
 
@@ -131,10 +125,10 @@ async def refresh_tokens(
     """
     
     try:
-        token = decode_token(data.refresh_token)
+        token = decode_jwt_token(data.refresh_token)
     except JWTError:
         raise HTTPException(
-            status_code=status.HTTP_401_UNAUTHORIZED, detail="Refresh token is invalid"
+            status_code=status.HTTP_401_UNAUTHORIZED, detail="Refresh token is invalid or expired."
         )
 
     token_data = {"email": token.get("email"), "user_id": token.get("user_id")}
