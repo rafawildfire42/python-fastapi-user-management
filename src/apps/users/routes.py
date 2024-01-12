@@ -5,8 +5,8 @@ from . import crud
 from .schemas import User, UserCreate
 from src.database.dependencies import get_db
 
-from fastapi import HTTPException, APIRouter, Path, Depends, Body, Query, Request
-from fastapi.responses import JSONResponse, HTMLResponse
+from fastapi import APIRouter, HTTPException, Request, status, Body, Depends, Path, Query
+from fastapi.responses import HTMLResponse, JSONResponse 
 from fastapi.templating import Jinja2Templates
 
 
@@ -178,5 +178,5 @@ def read_user(user_id: int, db: Session = Depends(get_db)):
     """
     db_user = crud.get_user(db, user_id=user_id)
     if db_user is None:
-        raise HTTPException(status_code=404, detail="User not found")
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="User not found")
     return db_user
