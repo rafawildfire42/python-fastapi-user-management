@@ -2,9 +2,9 @@ from sqlalchemy import Boolean, Column, Integer, String
 from sqlalchemy.orm import relationship
 
 from src.apps.permissions.models import (
-    PermissionGroup,
     permissions_group_user_association,
 )
+from src.apps.permissions_groups.models import PermissionGroup
 from src.database.base import Base
 
 
