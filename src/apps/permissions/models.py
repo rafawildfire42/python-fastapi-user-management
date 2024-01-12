@@ -9,6 +9,7 @@ permission_association = Table(
     Column("permission_id", Integer, ForeignKey("permissions.id")),
     Column("permission_group_id", Integer,
            ForeignKey("permissions_groups.id")),
+    UniqueConstraint('permission_id', 'permission_group_id', name='uq_permission_association')
 )
 
 
@@ -18,6 +19,7 @@ permissions_group_user_association = Table(
     Column("user_id", Integer, ForeignKey("users.id")),
     Column("permission_group_id", Integer,
            ForeignKey("permissions_groups.id")),
+    UniqueConstraint('user_id', 'permission_group_id', name='uq_permissions_group_user_association')
 )
 
 
