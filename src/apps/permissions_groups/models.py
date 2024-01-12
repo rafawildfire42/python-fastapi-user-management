@@ -1,7 +1,10 @@
 from sqlalchemy import Table, Column, Integer, String, ForeignKey, UniqueConstraint
 from sqlalchemy.orm import relationship
 from src.database.base import Base
-from src.apps.permissions.models import permission_association, permissions_group_user_association
+from src.apps.permissions.models import permission_association
+from src.apps.many_to_many.permissions_groups_and_users.models import (
+    permissions_group_user_association,
+)
 
 
 class PermissionGroup(Base):

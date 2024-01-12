@@ -1,5 +1,5 @@
 from sqlalchemy.orm import Session
-from ...permissions import models
+from . import models
 
 
 def get_user_permissions_group_relation(db: Session, skip: int = 0, limit: int = 100):

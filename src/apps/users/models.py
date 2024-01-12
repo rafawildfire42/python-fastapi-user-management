@@ -1,7 +1,7 @@
 from sqlalchemy import Boolean, Column, Integer, String
 from sqlalchemy.orm import relationship
 
-from src.apps.permissions.models import (
+from src.apps.many_to_many.permissions_groups_and_users.models import (
     permissions_group_user_association,
 )
 from src.apps.permissions_groups.models import PermissionGroup
