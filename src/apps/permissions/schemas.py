@@ -27,13 +27,3 @@ class Permission(PermissionBase):
         description="Identificador de uma instância de permissão",
         default=0
     )
-
-
-class PermissionAndGroupRelation(BaseModel):
-    permission_id: int = 0
-    permission_group_id: int = 0
-
-
-class UserAndGroupRelation(BaseModel):
-    user_id: int = 0
-    permission_group_id: int = 0
