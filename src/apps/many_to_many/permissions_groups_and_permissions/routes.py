@@ -21,5 +21,3 @@ def read_permissions_and_groups(skip: int = 0, limit: int = 100, db: Session = D
 
     """
     return crud.get_permissions_and_group_relation(db, skip=skip, limit=limit)
-
-

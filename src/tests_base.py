@@ -16,13 +16,13 @@ def get_headers_with_valid_token() -> dict[str, str]:
         "password": "123456"
     }
     response = unauthenticated_client.post("/auth", data=user_data)
-    
+
     token = response.json().get("access_token")
-    
+
     headers = {
-      "Authorization": f"Bearer {token}" 
+        "Authorization": f"Bearer {token}"
     }
-    
+
     return headers
 
 

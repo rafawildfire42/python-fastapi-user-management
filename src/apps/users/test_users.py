@@ -12,16 +12,16 @@ def test_request_create_user():
         "password": "123456"
     }
     data = json.dumps(data)
-    
+
     response = authenticated_client.post("/users", content=data)
-    
+
     # Alterando a variável global user_id para o usuário de teste ser utilizado nos demais tests
     global user_id
     user_id = response.json().get("id")
-    
+
     assert response.status_code == 200
-    
-    
+
+
 def test_request_retrieve_a_user():
     userd_id_to_retrieve = user_id
     response = authenticated_client.get(f"/users/{userd_id_to_retrieve}")
@@ -38,9 +38,9 @@ def test_request_update_user():
         "is_active": True,
     }
     data = json.dumps(data)
-    
+
     response = authenticated_client.put(f"/users/{user_id}", content=data)
-        
+
     assert response.status_code == 200
 
 

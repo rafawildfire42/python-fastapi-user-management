@@ -49,10 +49,10 @@ async def send_email(receiver: str):
 
 
 app = Celery(
-        main="tasks",
-        backend="rpc://",
-        broker=f"pyamqp://guest@{rabbit_mq_host}//"
-    )
+    main="tasks",
+    backend="rpc://",
+    broker=f"pyamqp://guest@{rabbit_mq_host}//"
+)
 app.config_from_object("src.apps.users.tasks")
 
 

@@ -39,7 +39,7 @@ def raise_http_exception_invalid_email_or_password():
         detail="Incorrect email or password.",
         headers={"WWW-Authenticate": "Bearer"},
     )
-    
+
 
 def raise_http_exception_while_token_creation(e: Exception):
     logging.error(f"Error during token creation: {e}")
@@ -49,6 +49,7 @@ def raise_http_exception_while_token_creation(e: Exception):
         headers={"WWW-Authenticate": "Bearer"},
     )
 
+
 def verify_password(plain_password, hashed_password):
     return pwd_context.verify(plain_password, hashed_password)
 
@@ -56,7 +57,7 @@ def verify_password(plain_password, hashed_password):
 def authenticate_user_and_get_user_id(db, email: str, password: str) -> int:
     user: User | None = get_user_by_email(db, email)
     is_password_valid = verify_password(password, user.password)
-    
+
     if user is None or not is_password_valid:
         raise_http_exception_invalid_email_or_password()
     elif user.is_active == False:
@@ -65,7 +66,7 @@ def authenticate_user_and_get_user_id(db, email: str, password: str) -> int:
             detail="You need to confirm your register first.",
             headers={"WWW-Authenticate": "Bearer"},
         )
-        
+
     return user.id
 
 
@@ -89,7 +90,7 @@ def create_jwt_token(data: dict, expires_delta: timedelta | None = None):
         return encoded_jwt
     except Exception as e:
         raise_http_exception_while_token_creation(e)
-        
+
 
 def get_access_and_refresh_tokens(data: dict[str, Any]):
     access_token_expires = timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)

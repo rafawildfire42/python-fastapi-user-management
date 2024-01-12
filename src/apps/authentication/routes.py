@@ -125,7 +125,7 @@ async def refresh_tokens(
 
     Returns access_token and refresh_token
     """
-    
+
     try:
         token = decode_jwt_token(data.refresh_token)
     except JWTError:

@@ -1,5 +1,6 @@
 from pydantic import BaseModel, Field
 
+
 class PermissionGroup(BaseModel):
     name: str = Field(
         title="Nome do grupo de permissão",

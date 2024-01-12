@@ -114,7 +114,7 @@ def update_permission(
 
     - **Path params:**
       - `permission_id`: ID of the permission to update.
-      
+
     - **Body:**
       - `route_id`: Route to associate the permission.
       - `action`: What can do in this route.

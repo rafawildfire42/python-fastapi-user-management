@@ -50,7 +50,6 @@ async def check_permissions(request: Request, call_next) -> JSONResponse:
                 content={"detail": "Invalid token or expired."},
             )
 
-
     response: JSONResponse = await call_next(request)
 
     return response
