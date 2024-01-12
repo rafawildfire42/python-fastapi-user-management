@@ -62,7 +62,7 @@ def delete_permission(permission_id: int, db: Session = Depends(get_db)):
     return permissions.delete_permission(db, permission_id)
 
 
-@permissions_router.post("/", response_model=PermissionBase)
+@permissions_router.post("/", response_model=Permission)
 def create_permission(
     permission: Annotated[
         PermissionBase,
