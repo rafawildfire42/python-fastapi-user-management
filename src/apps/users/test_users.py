@@ -18,10 +18,9 @@ def test_request_create_user():
         "password": "123456"
     }
     data = json.dumps(data)
+    
     response = authenticated_client.post("/users", content=data)
     user_id = response.json().get("id")
-    
     response = authenticated_client.delete(f"/users/{user_id}")
-    
     
     assert response.status_code == 200
