@@ -18,7 +18,7 @@ def delete_route(db, route_id: int):
         models.Route.id == route_id).first()
 
     if not db_route:
-        raise HTTPException(status_code=404, detail="Route not found")
+        return JSONResponse(status_code=404, content={"detail": "Route not found."})
 
     db.delete(db_route)
     db.commit()
