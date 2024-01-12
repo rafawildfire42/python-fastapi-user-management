@@ -1,7 +1,7 @@
 import json
 import logging 
 
-from fastapi import Depends
+from fastapi import Depends, status
 from fastapi.encoders import jsonable_encoder
 
 from src.database.base import SessionLocal
@@ -42,6 +42,17 @@ def test_request_create_permission():
     
     assert response.status_code == 200
     
+def test_request_creating_duplicated_permission():
+    data = {
+      "route_id": test_route_id,
+      "action": "create"
+    }
+    data = json.dumps(data)
+
+    response = authenticated_client.post("/permissions", content=data)
+
+    assert response.status_code == status.HTTP_400_BAD_REQUEST
+    
     
 def test_request_retrieve_a_permission():
     response = authenticated_client.get(f"/permissions/{permission_id}")
@@ -51,6 +62,7 @@ def test_request_retrieve_a_permission():
 
 def test_request_list_permissions():
     response = authenticated_client.get("/permissions")
+    
     assert response.status_code == 200
 
 
@@ -60,13 +72,13 @@ def test_request_update_permission():
     }
     data = json.dumps(data)
     
-    response = authenticated_client.put(f"/permission/{permission_id}", content=data)
-    print(response.json())
+    response = authenticated_client.put(f"/permissions/{permission_id}", content=data)
+    
     assert response.status_code == 200
 
 
 def test_request_delete_permission():
-    response = authenticated_client.delete(f"/permission/{permission_id}")
-    print(response.json())
+    response = authenticated_client.delete(f"/permissions/{permission_id}")
     delete_route(db, test_route_id)
+    
     assert response.status_code == 200
