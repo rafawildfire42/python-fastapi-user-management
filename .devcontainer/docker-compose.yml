@@ -25,7 +25,7 @@ services:
     container_name: fastapi-app
     environment:
       - POSTGRES_HOST=postgres
-      - RABBIT_MQ_HOST=rabbit
+      - RABBIT_MQ_HOST=rabbitmq
     volumes:
       - ..:/workspaces:cached
     ports:
