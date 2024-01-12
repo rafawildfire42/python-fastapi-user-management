@@ -2,7 +2,7 @@ from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
 from src.database.dependencies import get_db
 from src.apps.permissions.cruds import many_to_many
-from ..schemas import UserAndGroupRelation, PermissionAndGroupRelation
+from ..permissions.schemas import UserAndGroupRelation, PermissionAndGroupRelation
 
 
 permissions_and_groups_router = APIRouter(

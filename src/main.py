@@ -3,8 +3,8 @@ from src.apps.authentication.routes import auth_router
 from src.apps.users.routes import user_router
 from src.apps.permissions.routes.permissions import permissions_router
 from apps.permissions_groups.routes import permissions_groups_router
-from src.apps.permissions.routes.many_to_many import permissions_and_groups_router
-from src.apps.permissions.routes.many_to_many import users_and_groups_router
+from apps.many_to_many.routes import permissions_and_groups_router
+from apps.many_to_many.routes import users_and_groups_router
 from src.apps.routes.routes import routes_router
 from src.apps.authentication.middlewares import check_permissions
 
