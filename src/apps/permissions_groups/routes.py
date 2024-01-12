@@ -4,7 +4,7 @@ from sqlalchemy.orm import Session
 from fastapi.responses import JSONResponse
 from src.database.dependencies import get_db
 from src.apps.permissions_groups import crud
-from ..permissions.schemas import PermissionGroup, PermissionGroupBase
+from src.apps.permissions_groups.schemas import PermissionGroup, PermissionGroupBase
 
 permissions_groups_router = APIRouter(
     prefix="/permissions-groups", tags=["Permissions Groups"]
