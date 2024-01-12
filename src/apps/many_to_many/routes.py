@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
 from src.database.dependencies import get_db
-from src.apps.many_to_many import crud
+from src.apps.many_to_many.permissions_groups_and_permissions import crud
 from ..permissions.schemas import UserAndGroupRelation, PermissionAndGroupRelation
 
 

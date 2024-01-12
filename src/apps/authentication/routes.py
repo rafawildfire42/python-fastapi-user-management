@@ -13,7 +13,7 @@ from jose.exceptions import JWTError
 from fastapi.encoders import jsonable_encoder
 from fastapi.responses import JSONResponse
 from src.apps.many_to_many.permissions_groups_and_users.crud import get_user_permissions_group_relation_filter
-from src.apps.many_to_many.crud import (
+from src.apps.many_to_many.permissions_groups_and_permissions.crud import (
     get_permissions_and_group_relation,
 )
 from src.apps.permissions.crud import get_permissions
