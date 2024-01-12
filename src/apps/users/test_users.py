@@ -1,5 +1,6 @@
-from src.base import authenticated_client
 import json
+
+from src.base import authenticated_client
 
 # ID do usuário de test criado e deletado durante a fase de teste
 user_id = 0

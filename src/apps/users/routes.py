@@ -1,11 +1,14 @@
-from fastapi import HTTPException, APIRouter, Path, Depends, Body, Query, Request
 from typing import Annotated, Optional, List
 from sqlalchemy.orm import Session
-from src.database.dependencies import get_db
+
 from . import crud
 from .schemas import User, UserCreate
+from src.database.dependencies import get_db
+
+from fastapi import HTTPException, APIRouter, Path, Depends, Body, Query, Request
 from fastapi.responses import JSONResponse, HTMLResponse
 from fastapi.templating import Jinja2Templates
+
 
 user_router = APIRouter(prefix="/users", tags=["Users"])
 templates = Jinja2Templates(directory="src/apps/users/templates")
