@@ -16,7 +16,7 @@ from src.apps.many_to_many.crud import (
     get_user_permissions_group_relation_filter,
     get_permissions_and_group_relation,
 )
-from src.apps.permissions.cruds.permissions import get_permissions
+from src.apps.permissions.crud import get_permissions
 from src.apps.routes.crud import get_routes
 
 

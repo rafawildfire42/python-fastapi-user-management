@@ -1,6 +1,6 @@
 from sqlalchemy.orm import Session
 from sqlalchemy.exc import IntegrityError
-from .. import models, schemas
+from . import models, schemas
 from fastapi import HTTPException, status
 from fastapi.responses import JSONResponse
 

@@ -3,7 +3,7 @@ from typing import Annotated
 from sqlalchemy.orm import Session
 from fastapi.responses import JSONResponse
 from src.database.dependencies import get_db
-from src.apps.permissions.cruds import permissions
+from src.apps.permissions import crud
 from .schemas import Permission, PermissionBase
 
 permissions_router = APIRouter(prefix="/permissions", tags=["Permissions"])
@@ -22,7 +22,7 @@ def read_permissions(skip: int = 0, limit: int = 100, db: Session = Depends(get_
       - List of `Permission`.
 
     """
-    return permissions.get_permissions(db, skip=skip, limit=limit)
+    return crud.get_permissions(db, skip=skip, limit=limit)
 
 
 @permissions_router.get("/{permission_id}", response_model=Permission)
@@ -40,7 +40,7 @@ def read_permission(permission_id: int, db: Session = Depends(get_db)):
       - 404: If the permission is not found.
 
     """
-    permission: Permission | None = permissions.get_permission(
+    permission: Permission | None = crud.get_permission(
         db, permission_id)
     if not permission:
         raise HTTPException(status_code=404, detail="Permission not found")
@@ -59,7 +59,7 @@ def delete_permission(permission_id: int, db: Session = Depends(get_db)):
       - JSONResponse.
 
     """
-    return permissions.delete_permission(db, permission_id)
+    return crud.delete_permission(db, permission_id)
 
 
 @permissions_router.post("/", response_model=Permission)
@@ -97,7 +97,7 @@ def create_permission(
       - `PermissionBase` for the newly created permission.
 
     """
-    return permissions.create_permission(db=db, permission=permission)
+    return crud.create_permission(db=db, permission=permission)
 
 
 @permissions_router.put("/{permission_id}", response_model=PermissionBase)
@@ -120,4 +120,4 @@ def update_permission(
       - `PermissionBase` for the updated permission.
 
     """
-    return permissions.update_permission(db=db, permission=permission, id=permission_id)
+    return crud.update_permission(db=db, permission=permission, id=permission_id)
