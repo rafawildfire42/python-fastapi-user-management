@@ -51,7 +51,7 @@ def update_user(db: Session, user: schemas.UserCreate, id: int = 0, email: str =
             models.User.email == email).first()
 
     if not db_user:
-        raise HTTPException(status_code=401, detail="User not found")
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="User not found")
 
     for field, value in user.model_dump(exclude_unset=True).items():
         setattr(db_user, field, value)

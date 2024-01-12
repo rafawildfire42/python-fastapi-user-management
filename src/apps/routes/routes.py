@@ -61,7 +61,7 @@ def delete_route(route_id: int, db: Session = Depends(get_db)):
     return crud.delete_route(db, route_id)
 
 
-@routes_router.post("/", response_model=RouteBase)
+@routes_router.post("/", response_model=RouteSchema)
 def create_route(
     route: Annotated[
         RouteBase,
