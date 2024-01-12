@@ -4,6 +4,10 @@ from . import models, schemas
 from fastapi import HTTPException, status
 from fastapi.responses import JSONResponse
 from src.apps.users.tasks import send_email_celery
+from decouple import config
+
+
+send_email = config("ENABLE_SEND_EMAIL_TASK")
 
 
 def get_user(db: Session, user_id: int):
@@ -28,7 +32,8 @@ def create_user(db: Session, user: schemas.UserCreate):
     db.add(db_user)
     db.commit()
     db.refresh(db_user)
-    send_email_celery.delay(user.email)
+    if send_email:
+        send_email_celery.delay(user.email)
     return db_user
 
 
