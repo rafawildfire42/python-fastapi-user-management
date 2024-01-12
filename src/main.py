@@ -8,6 +8,7 @@ from src.apps.many_to_many.permissions_groups_and_users.routes import users_and_
 from src.apps.routes.routes import routes_router
 from src.apps.authentication.middlewares import check_permissions
 
+
 app = FastAPI()
 
 
@@ -17,6 +18,7 @@ def hello_world():
 
 
 app.middleware("http")(check_permissions)
+
 
 app.include_router(user_router)
 app.include_router(auth_router)
