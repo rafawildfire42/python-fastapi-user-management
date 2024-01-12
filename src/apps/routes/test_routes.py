@@ -15,7 +15,6 @@ def test_request_create_route():
     status_code = response.status_code
     global route_id
     route_id = response.json().get("id")
-    print(response.json())
     
     assert status_code == 200
     
