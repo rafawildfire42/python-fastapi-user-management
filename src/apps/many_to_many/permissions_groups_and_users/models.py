@@ -1,5 +1,5 @@
-from sqlalchemy import Table, Column, Integer, String, ForeignKey, UniqueConstraint
-from sqlalchemy.orm import relationship
+from sqlalchemy import Table, Column, Integer, ForeignKey, UniqueConstraint
+
 from src.database.base import Base
 
 permissions_group_user_association = Table(

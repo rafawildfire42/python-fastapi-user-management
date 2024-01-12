@@ -1,7 +1,9 @@
-from sqlalchemy import Table, Column, Integer, String, ForeignKey, UniqueConstraint
+from sqlalchemy import Column, Integer, String, ForeignKey, UniqueConstraint
 from sqlalchemy.orm import relationship
-from src.database.base import Base
+
 from src.apps.many_to_many.permissions_groups_and_permissions.models import permission_association
+from src.database.base import Base
+
 
 class Permission(Base):
     __tablename__ = "permissions"

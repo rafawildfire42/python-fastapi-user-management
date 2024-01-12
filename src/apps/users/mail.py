@@ -1,11 +1,10 @@
-import smtplib
-
+from decouple import config
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
+import smtplib
 
 from fastapi.responses import JSONResponse
 from fastapi import status
-from decouple import config
 
 
 def send_email(receiver: str):

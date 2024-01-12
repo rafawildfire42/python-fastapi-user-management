@@ -1,14 +1,14 @@
 import asyncio
 from celery import Celery
 from decouple import config
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
 import logging
 import smtplib
 
-from email.mime.multipart import MIMEMultipart
-from email.mime.text import MIMEText
-
 from fastapi.responses import JSONResponse
 from fastapi import status
+
 
 # Pegando referências nas variáveis de ambiente
 rabbit_mq_host = config("RABBIT_MQ_HOST")

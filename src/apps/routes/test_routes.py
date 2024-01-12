@@ -2,6 +2,7 @@ import json
 
 from src.tests_base import authenticated_client
 
+
 route_id = 0
 
 def test_request_create_route():

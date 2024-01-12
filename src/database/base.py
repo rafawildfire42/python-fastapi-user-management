@@ -1,7 +1,7 @@
+from decouple import config
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, declarative_base
-from decouple import config
-import os 
+
 
 db_user = config("POSTGRES_USER")
 db_password = config("POSTGRES_PW")

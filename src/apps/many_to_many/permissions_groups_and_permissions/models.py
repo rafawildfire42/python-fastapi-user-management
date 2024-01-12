@@ -1,5 +1,7 @@
 from sqlalchemy import Table, Column, Integer, ForeignKey, UniqueConstraint
+
 from src.database.base import Base
+
 
 permission_association = Table(
     "permission_association",

@@ -1,8 +1,8 @@
 from sqlalchemy import Boolean, Column, Integer, String
 from sqlalchemy.orm import relationship
 
-from src.database.base import Base
 from src.apps.permissions.models import Permission
+from src.database.base import Base
 
 
 class Route(Base):

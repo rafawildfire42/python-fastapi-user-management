@@ -1,5 +1,7 @@
-from fastapi.testclient import TestClient
 from .main import app
+
+from fastapi.testclient import TestClient
+
 
 unauthenticated_client = TestClient(
     app,

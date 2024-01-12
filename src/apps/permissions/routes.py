@@ -1,10 +1,13 @@
-from fastapi import APIRouter, Path, Depends, HTTPException, Body
 from typing import Annotated
 from sqlalchemy.orm import Session
-from fastapi.responses import JSONResponse
-from src.database.dependencies import get_db
-from src.apps.permissions import crud
+
 from .schemas import Permission, PermissionBase
+from src.apps.permissions import crud
+from src.database.dependencies import get_db
+
+from fastapi import APIRouter, Path, Depends, HTTPException, Body
+from fastapi.responses import JSONResponse
+
 
 permissions_router = APIRouter(prefix="/permissions", tags=["Permissions"])
 

@@ -1,8 +1,6 @@
 import json
-import logging 
 
-from fastapi import Depends, status
-from fastapi.encoders import jsonable_encoder
+from fastapi import status
 
 from src.database.base import SessionLocal
 from src.apps.routes.schemas import RouteBase

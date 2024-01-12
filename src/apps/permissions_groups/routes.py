@@ -1,10 +1,13 @@
-from fastapi import APIRouter, Path, Depends, HTTPException, Body
 from typing import Annotated
 from sqlalchemy.orm import Session
-from fastapi.responses import JSONResponse
-from src.database.dependencies import get_db
+
 from src.apps.permissions_groups import crud
 from src.apps.permissions_groups.schemas import PermissionGroup, PermissionGroupBase
+from src.database.dependencies import get_db
+
+from fastapi import APIRouter, Path, Depends, HTTPException, Body
+from fastapi.responses import JSONResponse
+
 
 permissions_groups_router = APIRouter(
     prefix="/permissions-groups", tags=["Permissions Groups"]

@@ -1,5 +1,6 @@
-from sqlalchemy import Table, Column, Integer, String, ForeignKey, UniqueConstraint
+from sqlalchemy import Column, Integer, String, UniqueConstraint
 from sqlalchemy.orm import relationship
+
 from src.database.base import Base
 from src.apps.permissions.models import permission_association
 from src.apps.many_to_many.permissions_groups_and_users.models import (

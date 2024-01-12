@@ -2,8 +2,8 @@ from decouple import config
 from sqlalchemy.orm import Session
 
 from . import models, schemas
-from src.apps.users.tasks import send_email_celery
 from .utils import get_password_hash
+from src.apps.users.tasks import send_email_celery
 
 from fastapi import HTTPException, status
 from fastapi.responses import JSONResponse
