@@ -1,17 +1,7 @@
 from sqlalchemy import Table, Column, Integer, String, ForeignKey, UniqueConstraint
 from sqlalchemy.orm import relationship
 from src.database.base import Base
-
-
-permission_association = Table(
-    "permission_association",
-    Base.metadata,
-    Column("permission_id", Integer, ForeignKey("permissions.id")),
-    Column("permission_group_id", Integer,
-           ForeignKey("permissions_groups.id")),
-    UniqueConstraint('permission_id', 'permission_group_id', name='uq_permission_association')
-)
-
+from src.apps.many_to_many.permissions_groups_and_permissions.models import permission_association
 
 class Permission(Base):
     __tablename__ = "permissions"
