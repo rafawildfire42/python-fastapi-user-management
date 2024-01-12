@@ -12,7 +12,7 @@ from src.database.dependencies import get_db
 from jose.exceptions import JWTError
 from fastapi.encoders import jsonable_encoder
 from fastapi.responses import JSONResponse
-from src.apps.permissions.cruds.many_to_many import (
+from src.apps.many_to_many.crud import (
     get_user_permissions_group_relation_filter,
     get_permissions_and_group_relation,
 )

@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
 from src.database.dependencies import get_db
-from src.apps.permissions.cruds import many_to_many
+from src.apps.many_to_many import crud
 from ..permissions.schemas import UserAndGroupRelation, PermissionAndGroupRelation
 
 
@@ -18,7 +18,7 @@ def read_permissions_and_groups(skip: int = 0, limit: int = 100, db: Session = D
       - All the permissions
 
     """
-    return many_to_many.get_permissions_and_group_relation(db, skip=skip, limit=limit)
+    return crud.get_permissions_and_group_relation(db, skip=skip, limit=limit)
 
 
 users_and_groups_router = APIRouter(
@@ -34,4 +34,4 @@ def read_users_and_groups(skip: int = 0, limit: int = 100, db: Session = Depends
       - All the permissions
 
     """
-    return many_to_many.get_user_permissions_group_relation(db, skip=skip, limit=limit)
+    return crud.get_user_permissions_group_relation(db, skip=skip, limit=limit)
