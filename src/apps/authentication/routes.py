@@ -1,3 +1,6 @@
+from jose.exceptions import JWTError
+from typing import Annotated, Any
+
 from .schemas import (
     Token,
     RefreshToken,
@@ -5,19 +8,18 @@ from .schemas import (
     decode_jwt_token,
     get_access_and_refresh_tokens,
 )
-from typing import Annotated, Any
-from fastapi.security import OAuth2PasswordRequestForm
-from fastapi import Depends, HTTPException, APIRouter, status, Body
-from src.database.dependencies import get_db
-from jose.exceptions import JWTError
-from fastapi.encoders import jsonable_encoder
-from fastapi.responses import JSONResponse
-from src.apps.many_to_many.permissions_groups_and_users.crud import get_user_permissions_group_relation_filter
 from src.apps.many_to_many.permissions_groups_and_permissions.crud import (
     get_permissions_and_group_relation,
 )
+from src.apps.many_to_many.permissions_groups_and_users.crud import get_user_permissions_group_relation_filter
 from src.apps.permissions.crud import get_permissions
 from src.apps.routes.crud import get_routes
+from src.database.dependencies import get_db
+
+from fastapi import Depends, HTTPException, APIRouter, status, Body
+from fastapi.encoders import jsonable_encoder
+from fastapi.responses import JSONResponse
+from fastapi.security import OAuth2PasswordRequestForm
 
 
 auth_router = APIRouter(prefix="/auth", tags=["Authentication"])

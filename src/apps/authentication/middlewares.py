@@ -1,8 +1,8 @@
+from src.apps.authentication.schemas import decode_jwt_token
+
 from fastapi import status
 from fastapi.requests import Request
-from src.apps.authentication.schemas import decode_jwt_token
 from fastapi.responses import JSONResponse
-from jose.exceptions import ExpiredSignatureError
 
 
 http_methods = {"GET": "view", "POST": "create",

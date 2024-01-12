@@ -1,14 +1,16 @@
 from datetime import datetime, timedelta
-from src.settings import ALGORITHM, SECRET_KEY, pwd_context
-from fastapi.security import OAuth2PasswordBearer
+from typing import Any
 from jose import jwt
 from pydantic import BaseModel
+import logging
+
 from src.apps.users.crud import get_user_by_email
 from src.apps.users.models import User
-from src.settings import ACCESS_TOKEN_EXPIRE_MINUTES, REFRESH_TOKEN_EXPIRE_DAYS
-from typing import Any
+from src.settings import ACCESS_TOKEN_EXPIRE_MINUTES, REFRESH_TOKEN_EXPIRE_DAYS, ALGORITHM, SECRET_KEY, pwd_context
+
 from fastapi import status, HTTPException
-import logging
+from fastapi.security import OAuth2PasswordBearer
+
 
 class RefreshToken(BaseModel):
     refresh_token: str
