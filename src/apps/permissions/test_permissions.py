@@ -27,7 +27,7 @@ def test_request_create_permission():
     test_route_id = test_route.id
     db.close()
     
-    assert type(test_route_id) == int
+    assert isinstance(test_route_id, int)
     
     data = {
       "route_id": test_route_id,
