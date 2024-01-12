@@ -8,7 +8,10 @@ from alembic import context
 from decouple import config as decouple_config
 from src.database.base import SQLALCHEMY_DATABASE_URL
 from src.apps.users.models import User
-from src.apps.permissions.models import Permission, PermissionGroup, permission_association
+from src.apps.permissions.models import Permission
+from src.apps.permissions_groups.models import PermissionGroup
+from src.apps.many_to_many.permissions_groups_and_permissions.models import permission_association
+from src.apps.many_to_many.permissions_groups_and_users.models import permissions_group_user_association
 from src.apps.routes.models import Route
 from src.database.base import Base
 
