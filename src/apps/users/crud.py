@@ -1,13 +1,15 @@
+from decouple import config
 from sqlalchemy.orm import Session
-from .utils import get_password_hash
+
 from . import models, schemas
+from src.apps.users.tasks import send_email_celery
+from .utils import get_password_hash
+
 from fastapi import HTTPException, status
 from fastapi.responses import JSONResponse
-from src.apps.users.tasks import send_email_celery
-from decouple import config
 
 
-send_email = config("ENABLE_SEND_EMAIL_TASK")
+send_email = config("ENABLE_SEND_EMAIL_TASK") == "1"
 
 
 def get_user(db: Session, user_id: int):
