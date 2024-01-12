@@ -4,7 +4,7 @@ from sqlalchemy.orm import Session
 from fastapi.responses import JSONResponse
 from src.database.dependencies import get_db
 from src.apps.permissions.cruds import permissions
-from ..schemas import Permission, PermissionBase
+from .schemas import Permission, PermissionBase
 
 permissions_router = APIRouter(prefix="/permissions", tags=["Permissions"])
 
