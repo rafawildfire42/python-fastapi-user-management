@@ -35,7 +35,7 @@ services:
         sleep 5 &&
         poetry run alembic upgrade head &&
         psql -U admin -d main -h postgres -f populate_database.sql &&
-        PYTHONPATH=/app/src:$PYTHONPATH &&
+        export PYTHONPATH=/app/src:$PYTHONPATH &&
         while sleep 1000; do :; done
       "
 
