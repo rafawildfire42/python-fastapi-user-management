@@ -3,5 +3,18 @@
   "dockerComposeFile": ["docker-compose.yml"],
   "service": "app",
   "workspaceFolder": "/app",
-  "forwardPorts": [8000]
+  "forwardPorts": [
+    8000
+  ],
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "ms-python.autopep8",
+        "ms-azuretools.vscode-docker",
+        "vscode-icons-team.vscode-icons",
+        "eamodio.gitlens"
+      ]
+    }
+  }
 }
