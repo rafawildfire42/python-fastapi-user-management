@@ -54,9 +54,6 @@ def update_permissions_group(db: Session, permissions_group: schemas.PermissionG
             status_code=404, detail="Permission group not found")
 
     for field, value in permissions_group.model_dump(exclude_unset=True).items():
-        if isinstance(value, schemas.Action):
-            setattr(db_permissions_group, field, value.value)
-            continue
         setattr(db_permissions_group, field, value)
 
     db.commit()

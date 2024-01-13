@@ -75,7 +75,7 @@ def delete_permissions_group(permissions_group_id: int, db: Session = Depends(ge
     return crud.delete_permissions_group(db, permissions_group_id)
 
 
-@permissions_groups_router.post("/", response_model=PermissionGroup)
+@permissions_groups_router.post("/", response_model=PermissionGroupBase)
 def create_permissions_group(
     permissions_group: Annotated[
         PermissionGroup,
@@ -111,7 +111,7 @@ def create_permissions_group(
 )
 def update_permissions_group(
     permissions_group_id: Annotated[int, Path(title="The ID of the item to get")],
-    permissions_group: PermissionGroupBase = None,
+    permissions_group: PermissionGroup,
     db: Session = Depends(get_db),
 ):
     """
