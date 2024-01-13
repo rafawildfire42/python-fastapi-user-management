@@ -29,9 +29,6 @@ services:
     depends_on:
       - postgres
       - rabbitmq
-    environment:
-      - POSTGRES_HOST=postgres
-      - RABBIT_MQ_HOST=rabbitmq
     image: paneas
     volumes:
       - ..:/workspaces:cached
