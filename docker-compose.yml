@@ -23,6 +23,9 @@ services:
       - postgres
       - rabbitmq
     container_name: fastapi-app
+    environment:
+      - POSTGRES_HOST=postgres
+      - RABBIT_MQ_HOST=rabbitmq
     ports:
       - "8000:8000"
     command: >
@@ -40,6 +43,9 @@ services:
       - postgres
       - rabbitmq
     container_name: fastapi-celery-worker
+    environment:
+      - POSTGRES_HOST=postgres
+      - RABBIT_MQ_HOST=rabbitmq
     command: >
       bash -c "
         export PYTHONPATH=/app/src:$PYTHONPATH &&
