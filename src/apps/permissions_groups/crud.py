@@ -32,7 +32,7 @@ def delete_permissions_group(db, permission_groups_id: int):
     return JSONResponse(status_code=status.HTTP_200_OK, content=response_body)
 
 
-def create_permissions_group(db, permissions_group):
+def create_permissions_group(db, permissions_group: schemas.PermissionGroup):
     try:
         db_permissions_group = models.PermissionGroup(
             name=permissions_group.name)

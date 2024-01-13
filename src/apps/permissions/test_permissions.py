@@ -21,7 +21,7 @@ def test_request_create_permission():
         "path": "/test_permission",
         "needs_permission": True
     }
-    test_route = create_route(db, RouteBase.model_validate((route_data)))
+    test_route = create_route(db, RouteBase.model_validate(route_data))
     global test_route_id
     test_route_id = test_route.id
     db.close()
