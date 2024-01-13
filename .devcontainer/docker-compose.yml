@@ -26,7 +26,6 @@ services:
     environment:
       - POSTGRES_HOST=postgres
       - RABBIT_MQ_HOST=rabbitmq
-      - PYTHONPATH=/app/src:$PYTHONPATH
     volumes:
       - ..:/workspaces:cached
     ports:
@@ -36,6 +35,7 @@ services:
         sleep 5 &&
         poetry run alembic upgrade head &&
         psql -U admin -d main -h postgres -f populate_database.sql &&
+        PYTHONPATH=/app/src:$PYTHONPATH &&
         while sleep 1000; do :; done
       "
 
