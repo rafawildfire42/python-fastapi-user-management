@@ -72,5 +72,5 @@ def delete_user_permissions_group_relation(db: Session, user_id: int, permission
     db.commit()
 
     return JSONResponse(content={
-        "detail": "No records deleted. Maybe you passed a relation that doesn't exists."
-    }, status_code=status.HTTP_400_BAD_REQUEST)
+        "detail": f"Relation between Permissions Group #{permissions_group_id} and User #{user_id} deleted succesfully."
+    }, status_code=status.HTTP_200_OK)
