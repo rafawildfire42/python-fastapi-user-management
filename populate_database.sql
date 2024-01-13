@@ -10,7 +10,7 @@ VALUES
 ('/auth', false),
 ('/users', true),
 ('/permissions', true),
-('/permissions-group', true),
+('/permissions-groups', true),
 ('/routes', true),
 ('/users-and-groups', true),
 ('/permissions-and-groups', true);
