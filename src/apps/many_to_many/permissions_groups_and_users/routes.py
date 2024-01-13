@@ -46,4 +46,3 @@ def delete_users_and_groups(user_id: int, permissions_group_id: int, db: Session
 
     """
     return crud.delete_user_permissions_group_relation(db, user_id=user_id, permissions_group_id=permissions_group_id)
-
