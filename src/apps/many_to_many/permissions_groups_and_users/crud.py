@@ -16,14 +16,17 @@ def get_user_permissions_group_relation(db: Session, skip: int = 0, limit: int =
 
 
 def get_user_permissions_group_relation_filter(db: Session, user_id: int, permissions_group_id: int, skip: int = 0, limit: int = 100):
+    db_query = db.query(models.permissions_group_user_association)
+    
     if user_id and permissions_group_id:
-        return db.query(models.permissions_group_user_association).filter_by(user_id=user_id, permissions_group_id=permissions_group_id).all()
-    elif permissions_group_id:
-        return db.query(models.permissions_group_user_association).filter_by(             permissions_group_id=permissions_group_id).all()
-    elif user_id:
-        return db.query(models.permissions_group_user_association).filter_by(user_id=user_id).all()
+        return db_query.filter_by(user_id=user_id, permissions_group_id=permissions_group_id).all()
+    elif user_id or permissions_group_id:
+        if permissions_group_id:
+            return db_query.filter_by(permissions_group_id=permissions_group_id).all()
+        else:
+            return db_query.filter_by(user_id=user_id).all()
     else:
-        return db.query(models.permissions_group_user_association).offset(skip).limit(limit).all()
+        return db_query.offset(skip).limit(limit).all()
 
 
 def create_user_permissions_group_relation(db: Session, data: UserAndGroupRelation):
