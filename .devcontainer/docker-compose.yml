@@ -1,32 +1,23 @@
 services:
   postgres:
-    image: postgres:latest
     container_name: fastapi-postgres
     environment:
       - POSTGRES_DB=main
       - POSTGRES_PASSWORD=paneas
       - POSTGRES_USER=admin
+    image: postgres:latest
     ports:
       - "5432:5432"
     volumes:
       - myvolume:/var/lib/postgresql/data
 
   rabbitmq:
+    container_name: fastapi-rabbitmq
     image: rabbitmq
     ports:
       - 5672:5672
-    container_name: fastapi-rabbitmq
 
   app:
-    image: paneas
-    depends_on:
-      - postgres
-      - rabbitmq
-    container_name: fastapi-app
-    volumes:
-      - ..:/workspaces:cached
-    ports:
-      - "8000:8000"
     command: >
       bash -c "
         sleep 5 &&
@@ -34,6 +25,18 @@ services:
         psql -U admin -d main -h postgres -f populate_database.sql &&
         while sleep 1000; do :; done
       "
+    container_name: fastapi-app
+    depends_on:
+      - postgres
+      - rabbitmq
+    environment:
+      - POSTGRES_HOST=postgres
+      - RABBIT_MQ_HOST=rabbitmq
+    image: paneas
+    volumes:
+      - ..:/workspaces:cached
+    ports:
+      - "8000:8000"
 
 volumes:
   myvolume:

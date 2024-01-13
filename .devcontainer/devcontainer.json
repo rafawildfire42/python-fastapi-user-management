@@ -4,8 +4,6 @@
   "service": "app",
   "workspaceFolder": "/app",
   "containerEnv": {
-    "RABBIT_MQ_HOST": "rabbitmq",
-    "POSTGRES_HOST": "postgres",
     "PYTHONPATH": "/app/src:$PYTHONPATH"
   },
   "forwardPorts": [
