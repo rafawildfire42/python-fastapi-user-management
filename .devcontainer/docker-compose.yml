@@ -2,10 +2,6 @@ services:
   postgres:
     image: postgres:latest
     container_name: fastapi-postgres
-    environment:
-      - POSTGRES_USER=admin
-      - POSTGRES_PASSWORD=paneas
-      - POSTGRES_DB=main
     ports:
       - "5432:5432"
     volumes:
@@ -32,7 +28,6 @@ services:
         sleep 5 &&
         poetry run alembic upgrade head &&
         psql -U admin -d main -h postgres -f populate_database.sql &&
-        export PYTHONPATH=/app/src:$PYTHONPATH &&
         while sleep 1000; do :; done
       "
 

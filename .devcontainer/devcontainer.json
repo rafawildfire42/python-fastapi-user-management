@@ -5,7 +5,11 @@
   "workspaceFolder": "/app",
   "containerEnv": {
     "RABBIT_MQ_HOST": "rabbitmq",
-    "POSTGRES_HOST": "postgres"
+    "POSTGRES_DB": "main",
+    "POSTGRES_HOST": "postgres",
+    "POSTGRES_PASSWORD": "paneas",
+    "POSTGRES_USER": "admin",
+    "PYTHONPATH": "/app/src:$PYTHONPATH"
   },
   "forwardPorts": [
     8000
