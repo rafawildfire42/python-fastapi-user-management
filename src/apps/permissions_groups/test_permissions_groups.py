@@ -31,7 +31,8 @@ def test_request_list_permissions_groups() -> None:
 
 
 def test_request_retrieve_permissions_group():
-    response: Response = authenticated_client.get(f"/permissions-groups/{permissions_group_id}")
+    response: Response = authenticated_client.get(
+        f"/permissions-groups/{permissions_group_id}")
     status_code: int = response.status_code
 
     assert status_code == status.HTTP_200_OK
@@ -43,14 +44,16 @@ def test_request_update_permissions_group():
     }
     data_dumped: str = json.dumps(data)
 
-    response = authenticated_client.put(f"/permissions-groups/{permissions_group_id}", content=data_dumped)
+    response = authenticated_client.put(
+        f"/permissions-groups/{permissions_group_id}", content=data_dumped)
     status_code: int = response.status_code
 
     assert status_code == status.HTTP_200_OK
 
 
 def test_request_delete_route():
-    response = authenticated_client.delete(f"/permissions-groups/{permissions_group_id}")
+    response = authenticated_client.delete(
+        f"/permissions-groups/{permissions_group_id}")
     status_code: int = response.status_code
 
     assert status_code == status.HTTP_200_OK
