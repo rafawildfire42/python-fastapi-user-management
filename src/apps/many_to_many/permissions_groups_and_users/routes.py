@@ -12,7 +12,7 @@ users_and_groups_router = APIRouter(
 
 
 @users_and_groups_router.get("/", response_model=list[UserAndGroupRelation])
-def read_users_and_groups(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
+def retrieve_user_and_groups(user_id: int = 0, permissions_group_id: int = 0, skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
     """
     List relations between users and gorups
 
@@ -20,7 +20,7 @@ def read_users_and_groups(skip: int = 0, limit: int = 100, db: Session = Depends
       - All the permissions
 
     """
-    return crud.get_user_permissions_group_relation(db, skip=skip, limit=limit)
+    return crud.get_user_permissions_group_relation_filter(db, user_id=user_id, permissions_group_id=permissions_group_id, skip=skip, limit=limit)
 
 
 @users_and_groups_router.post("/", response_model=UserAndGroupRelation)

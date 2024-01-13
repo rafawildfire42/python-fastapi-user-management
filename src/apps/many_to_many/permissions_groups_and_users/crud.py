@@ -1,6 +1,6 @@
 import logging
 from sqlalchemy.exc import IntegrityError
-from sqlalchemy.orm import Session
+from sqlalchemy.orm import Relationship, Session
 from sqlalchemy.orm.exc import FlushError
 
 from . import models
@@ -15,8 +15,15 @@ def get_user_permissions_group_relation(db: Session, skip: int = 0, limit: int =
     return db.query(models.permissions_group_user_association).offset(skip).limit(limit).all()
 
 
-def get_user_permissions_group_relation_filter(db: Session, user_id: int, skip: int = 0, limit: int = 100):
-    return db.query(models.permissions_group_user_association).filter_by(user_id=user_id).all()
+def get_user_permissions_group_relation_filter(db: Session, user_id: int, permissions_group_id: int, skip: int = 0, limit: int = 100):
+    if user_id and permissions_group_id:
+        return db.query(models.permissions_group_user_association).filter_by(user_id=user_id, permissions_group_id=permissions_group_id).all()
+    elif permissions_group_id:
+        return db.query(models.permissions_group_user_association).filter_by(             permissions_group_id=permissions_group_id).all()
+    elif user_id:
+        return db.query(models.permissions_group_user_association).filter_by(user_id=user_id).all()
+    else:
+        return db.query(models.permissions_group_user_association).offset(skip).limit(limit).all()
 
 
 def create_user_permissions_group_relation(db: Session, data: UserAndGroupRelation):
@@ -41,5 +48,10 @@ def create_user_permissions_group_relation(db: Session, data: UserAndGroupRelati
     except Exception as e:
         logging.error(e)
         raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=f"Error while creating relation between Permissions Group #{permissions_group_id} and User #{user_id}.")
-        
     
+
+def delete_user_permissions_group_relation(db: Session, data: UserAndGroupRelation):
+    permissions_group_id = data.permission_group_id
+    user_id = data.user_id
+
+    return db.query(models.permissions_group_user_association).filter_by(user_id=user_id, permission_group_id=permissions_group_id).first()
