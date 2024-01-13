@@ -2,6 +2,10 @@ services:
   postgres:
     image: postgres:latest
     container_name: fastapi-postgres
+    environment:
+      - POSTGRES_DB=main
+      - POSTGRES_PASSWORD=paneas
+      - POSTGRES_USER=admin
     ports:
       - "5432:5432"
     volumes:

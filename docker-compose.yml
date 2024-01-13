@@ -1,33 +1,23 @@
 services:
   postgres:
-    image: postgres:latest
     container_name: fastapi-postgres
     environment:
-      - POSTGRES_USER=${POSTGRES_USER}
-      - POSTGRES_PASSWORD=${POSTGRES_PW}
       - POSTGRES_DB=${POSTGRES_DB}
+      - POSTGRES_PASSWORD=${POSTGRES_PW}
+      - POSTGRES_USER=${POSTGRES_USER}
+    image: postgres:latest
     ports:
       - "5432:5432"
     volumes:
       - myvolume:/var/lib/postgresql/data
 
   rabbitmq:
+    container_name: fastapi-rabbitmq
     image: rabbitmq
     ports:
       - 5672:5672
-    container_name: fastapi-rabbitmq
 
   app:
-    image: paneas
-    depends_on:
-      - postgres
-      - rabbitmq
-    container_name: fastapi-app
-    environment:
-      - POSTGRES_HOST=postgres
-      - RABBIT_MQ_HOST=rabbitmq
-    ports:
-      - "8000:8000"
     command: >
       bash -c "
         export PYTHONPATH=/app/src:$PYTHONPATH &&
@@ -36,21 +26,31 @@ services:
         psql -U admin -d main -h postgres -f populate_database.sql
         poetry run uvicorn src.main:app --host 0.0.0.0 --port 8000
       "
-
-  celeryworker:
-    image: paneas
+    container_name: fastapi-app
     depends_on:
       - postgres
       - rabbitmq
-    container_name: fastapi-celery-worker
+    image: paneas
     environment:
       - POSTGRES_HOST=postgres
       - RABBIT_MQ_HOST=rabbitmq
+    ports:
+      - "8000:8000"
+
+  celeryworker:
     command: >
       bash -c "
         export PYTHONPATH=/app/src:$PYTHONPATH &&
         poetry run celery --workdir /app/src/apps/users -A tasks worker --pool=solo -l debug
       "
+    container_name: fastapi-celery-worker
+    depends_on:
+      - postgres
+      - rabbitmq
+    environment:
+      - POSTGRES_HOST=postgres
+      - RABBIT_MQ_HOST=rabbitmq
+    image: paneas
 
 volumes:
   myvolume:
