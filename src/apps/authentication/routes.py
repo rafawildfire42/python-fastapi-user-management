@@ -9,7 +9,7 @@ from .schemas import (
     get_access_and_refresh_tokens,
 )
 from src.apps.many_to_many.permissions_groups_and_permissions.crud import (
-    get_permissions_and_group_relation,
+    get_permission_and_permissions_group_relation,
 )
 from src.apps.many_to_many.permissions_groups_and_users.crud import get_user_permissions_group_relation_filter
 from src.apps.permissions.crud import get_permissions
@@ -31,7 +31,7 @@ def get_data(db_session, email, user_id):
     )
     groups_ids = [item[1] for item in user_and_group_relation]
 
-    permissions_and_group_relation = get_permissions_and_group_relation(
+    permissions_and_group_relation = get_permission_and_permissions_group_relation(
         db_session)
     groups_permissions = list(
         filter(lambda x: x[1] in groups_ids, permissions_and_group_relation)

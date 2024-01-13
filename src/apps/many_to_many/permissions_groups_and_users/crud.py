@@ -13,10 +13,6 @@ from fastapi import HTTPException, status
 from fastapi.responses import JSONResponse
 
 
-def get_user_permissions_group_relation(db: Session, skip: int = 0, limit: int = 100):
-    return db.query(models.permissions_group_user_association).offset(skip).limit(limit).all()
-
-
 def get_user_permissions_group_relation_filter(db: Session, user_id: int = 0, permissions_group_id: int = 0, skip: int = 0, limit: int = 100):
     db_query = db.query(models.permissions_group_user_association)
 
