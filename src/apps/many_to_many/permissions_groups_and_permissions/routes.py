@@ -21,3 +21,15 @@ def read_permissions_and_groups(permission_id: int = 0, permissions_group_id: in
 
     """
     return crud.get_permission_and_permissions_group_relation(db, permission_id=permission_id, permissions_group_id=permissions_group_id, skip=skip, limit=limit)
+
+
+@permissions_and_groups_router.post("/", response_model=PermissionAndGroupRelation)
+def create_permissions_and_groups(data: PermissionAndGroupRelation, db: Session = Depends(get_db)):
+    """
+    List relations between permissions and gorups
+
+    - **Response:**
+      - All the permissions
+
+    """
+    return crud.create_user_permissions_group_relation(db, data=data)
