@@ -26,13 +26,13 @@ services:
     environment:
       - POSTGRES_HOST=postgres
       - RABBIT_MQ_HOST=rabbitmq
+      - PYTHONPATH=/app/src:$PYTHONPATH
     volumes:
       - ..:/workspaces:cached
     ports:
       - "8000:8000"
     command: >
       bash -c "
-        export PYTHONPATH=/app/src:$PYTHONPATH &&
         sleep 5 &&
         poetry run alembic upgrade head &&
         psql -U admin -d main -h postgres -f populate_database.sql &&
