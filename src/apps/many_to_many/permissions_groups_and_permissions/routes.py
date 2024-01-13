@@ -33,3 +33,15 @@ def create_permissions_and_groups(data: PermissionAndGroupRelation, db: Session 
 
     """
     return crud.create_user_permissions_group_relation(db, data=data)
+
+
+@permissions_and_groups_router.delete("/", response_model=PermissionAndGroupRelation)
+def delete_permissions_and_groups(permission_id: int, permissions_group_id: int, db: Session = Depends(get_db)):
+    """
+    List relations between permissions and gorups
+
+    - **Response:**
+      - All the permissions
+
+    """
+    return crud.delete_user_permissions_group_relation(db, permission_id=permission_id, permissions_group_id=permissions_group_id)

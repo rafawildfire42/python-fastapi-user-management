@@ -53,3 +53,24 @@ def create_user_permissions_group_relation(db: Session, data: PermissionAndGroup
         logging.error(e)
         raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST,
                             detail=f"Error while creating relation between Permissions Group #{permissions_group_id} and Permission #{permission_id}.")
+
+
+def delete_user_permissions_group_relation(db: Session, permission_id: int, permissions_group_id: int):
+    stmt = delete(models.permission_association).where(
+        models.permission_association.c.permission_id == permission_id,
+        models.permission_association.c.permission_group_id == permissions_group_id
+    )
+
+    result = db.execute(stmt)
+    deleted_rows = result.rowcount
+
+    if not deleted_rows:
+        return JSONResponse(content={
+            "detail": "No records deleted. Maybe you passed a relation that doesn't exists."
+        }, status_code=status.HTTP_400_BAD_REQUEST)
+
+    db.commit()
+
+    return JSONResponse(content={
+        "detail": f"Relation between Permissions Group #{permissions_group_id} and Permission #{permission_id} deleted succesfully."
+    }, status_code=status.HTTP_200_OK)
