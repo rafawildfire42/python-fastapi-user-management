@@ -24,7 +24,7 @@ def read_users_and_groups(skip: int = 0, limit: int = 100, db: Session = Depends
 
 
 @users_and_groups_router.post("/", response_model=UserAndGroupRelation)
-def read_users_and_groups(data: UserAndGroupRelation, db: Session = Depends(get_db)):
+def create_users_and_groups(data: UserAndGroupRelation, db: Session = Depends(get_db)):
     """
     List relations between users and gorups
 

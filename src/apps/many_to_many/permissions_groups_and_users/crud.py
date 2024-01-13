@@ -1,5 +1,7 @@
 import logging
+from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import Session
+from sqlalchemy.orm.exc import FlushError
 
 from . import models
 from .schemas import UserAndGroupRelation
@@ -26,9 +28,18 @@ def create_user_permissions_group_relation(db: Session, data: UserAndGroupRelati
         db_permissions_group = get_permissions_group(db, permissions_group_id=permissions_group_id)
         db_user.permissions_group.append(db_permissions_group)
         db.commit()
-        return db.query(models.permissions_group_user_association).filter_by(user_id=1).all()
+        return db.query(models.permissions_group_user_association).filter_by(user_id=user_id, permission_group_id=permissions_group_id).first()
+    
+    except (FlushError, AttributeError) as e:
+        logging.error(e)
+        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=f"Error while creating relation between permissions groups and user. Check if Permissions Group #{permissions_group_id} and User #{user_id} exists.")
+    
+    except IntegrityError as e:
+        logging.error(e)
+        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=f"Relation between Permissions Group #{permissions_group_id} and User #{user_id} already exists.")
+    
     except Exception as e:
         logging.error(e)
-        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=f"Error while creating relation between permissions group #{permissions_group_id} and user #{user_id}. Check if this relation already exists.")
+        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=f"Error while creating relation between Permissions Group #{permissions_group_id} and User #{user_id}.")
         
     
