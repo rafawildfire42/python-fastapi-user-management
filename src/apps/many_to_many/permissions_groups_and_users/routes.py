@@ -5,6 +5,7 @@ from . import crud
 from src.database.dependencies import get_db
 
 from fastapi import APIRouter, Depends
+from fastapi.responses import JSONResponse
 
 
 users_and_groups_router = APIRouter(
@@ -33,4 +34,16 @@ def create_users_and_groups(data: UserAndGroupRelation, db: Session = Depends(ge
 
     """
     return crud.create_user_permissions_group_relation(db, data)
+
+
+@users_and_groups_router.delete("/", response_class=JSONResponse)
+def delete_users_and_groups(user_id: int, permissions_group_id: int, db: Session = Depends(get_db)):
+    """
+    List relations between users and gorups
+
+    - **Response:**
+      - All the permissions
+
+    """
+    return crud.delete_user_permissions_group_relation(db, user_id=user_id, permissions_group_id=permissions_group_id)
 

@@ -27,7 +27,7 @@ auth_router = APIRouter(prefix="/auth", tags=["Authentication"])
 
 def get_data(db_session, email, user_id):
     user_and_group_relation = get_user_permissions_group_relation_filter(
-        db_session, user_id
+        db_session, user_id=user_id
     )
     groups_ids = [item[1] for item in user_and_group_relation]
 
