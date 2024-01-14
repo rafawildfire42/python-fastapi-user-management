@@ -43,9 +43,7 @@ def test_request_create_permissions_groups_and_permission_relation():
     
     
     permissions_group = create_permissions_group(db, permissions_group_data)
-    print(permissions_group.id)
     permission = create_permission(db, permission_data)
-    print(permission.id)
     
     global permissions_group_id
     global permission_id
@@ -58,8 +56,6 @@ def test_request_create_permissions_groups_and_permission_relation():
         "permission_group_id": permissions_group_id
     }
     data = json.dumps(data)
-    print(data)
-    logging.info(data)
 
     response = authenticated_client.post("/permissions-and-groups", content=data)
     
