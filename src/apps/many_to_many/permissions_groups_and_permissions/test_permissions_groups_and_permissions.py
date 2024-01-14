@@ -30,24 +30,22 @@ def test_request_create_permissions_groups_and_permission_relation():
     global test_route_id
     test_route_id = test_route.id
     db.close()
-    
+
     permissions_group_data = PermissionGroup.model_validate({
         "name": "permissions_group_test"
     })
-    
-    
+
     permission_data = PermissionBase.model_validate({
         "route_id": test_route_id,
         "action": "create"
     })
-    
-    
+
     permissions_group = create_permissions_group(db, permissions_group_data)
     permission = create_permission(db, permission_data)
-    
+
     global permissions_group_id
     global permission_id
-    
+
     permissions_group_id = permissions_group.id
     permission_id = permission.id
 
@@ -57,8 +55,9 @@ def test_request_create_permissions_groups_and_permission_relation():
     }
     data = json.dumps(data)
 
-    response = authenticated_client.post("/permissions-and-groups", content=data)
-    
+    response = authenticated_client.post(
+        "/permissions-and-groups", content=data)
+
     assert response.status_code == status.HTTP_200_OK
 
 
@@ -69,8 +68,9 @@ def test_request_list_a_permissions_group_and_permission_relation():
 
 
 def test_request_delete_permission():
-    response = authenticated_client.delete(f"/permissions-and-groups/?permission_id={permission_id}&permissions_group_id={permissions_group_id}")
-    
+    response = authenticated_client.delete(
+        f"/permissions-and-groups/?permission_id={permission_id}&permissions_group_id={permissions_group_id}")
+
     delete_route(db, test_route_id)
     delete_permission(db, permission_id)
     delete_permissions_group(db, permissions_group_id)

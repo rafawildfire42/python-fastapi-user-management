@@ -1,6 +1,7 @@
 from decouple import config
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
+import logging
 import smtplib
 
 from fastapi.responses import JSONResponse
@@ -35,10 +36,9 @@ def send_email(receiver: str):
         mail.starttls()
         mail.login(me, config("EMAIL_PASSWORD"))
         mail.sendmail(me, you, msg.as_string())
-        print("Email enviado")
         mail.quit()
     except Exception as e:
-        print(e)
+        logging.error(e)
         return JSONResponse(
             status_code=status.HTTP_400_BAD_REQUEST,
             content={"detail": "Error while sending email."},
