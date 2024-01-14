@@ -1,4 +1,5 @@
 import json
+import logging
 
 from fastapi import status
 
@@ -19,7 +20,7 @@ permission_id = 0
 test_route_id = 0
 
 
-def test_request_create_permissions_groups_and_user_relation():
+def test_request_create_permissions_groups_and_permission_relation():
     # Criando rota de teste
     route_data: dict[str, str | bool] = {
         "path": "/test_permission",
@@ -42,7 +43,9 @@ def test_request_create_permissions_groups_and_user_relation():
     
     
     permissions_group = create_permissions_group(db, permissions_group_data)
+    print(permissions_group.id)
     permission = create_permission(db, permission_data)
+    print(permission.id)
     
     global permissions_group_id
     global permission_id
@@ -51,13 +54,15 @@ def test_request_create_permissions_groups_and_user_relation():
     permission_id = permission.id
 
     data = {
-        "permission_id": permissions_group_id,
-        "permissions_group_id": permission_id
+        "permission_id": permission_id,
+        "permission_group_id": permissions_group_id
     }
     data = json.dumps(data)
+    print(data)
+    logging.info(data)
 
     response = authenticated_client.post("/permissions-and-groups", content=data)
-
+    
     assert response.status_code == status.HTTP_200_OK
 
 

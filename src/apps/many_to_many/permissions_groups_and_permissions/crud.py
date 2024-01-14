@@ -27,7 +27,7 @@ def get_permission_and_permissions_group_relation(db: Session, permission_id: in
         return db_query.offset(skip).limit(limit).all()
 
 
-def create_user_permissions_group_relation(db: Session, data: PermissionAndGroupRelation):
+def create_permissions_group_and_permissions_relation(db: Session, data: PermissionAndGroupRelation):
     permissions_group_id = data.permission_group_id
     permission_id = data.permission_id
 
@@ -55,7 +55,7 @@ def create_user_permissions_group_relation(db: Session, data: PermissionAndGroup
                             detail=f"Error while creating relation between Permissions Group #{permissions_group_id} and Permission #{permission_id}.")
 
 
-def delete_user_permissions_group_relation(db: Session, permission_id: int, permissions_group_id: int):
+def delete_permissions_group_and_permission_relation(db: Session, permission_id: int, permissions_group_id: int):
     stmt = delete(models.permission_association).where(
         models.permission_association.c.permission_id == permission_id,
         models.permission_association.c.permission_group_id == permissions_group_id
