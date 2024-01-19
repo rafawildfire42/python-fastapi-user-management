@@ -1,5 +1,18 @@
 <h1 align="center"> Projeto </h1>
 
+<h2>Funcionalidades:</h2>
+- Gerenciar usuários<br>
+- Gerenciar permissionamento e autenticação<br>
+
+<h2>Principais ferramentas utilizadas:</h2>
+- Python 3.10^<br>
+- FastAPI<br>
+- Docker<br> 
+- AlchemySQL<br>
+- Alembic<br>
+- Celery<br>
+- RabbitMQ<br>
+
 <h2>Observações:</h2>
 
 <h3>Postgres:</h3>
@@ -41,8 +54,7 @@ Default DB: main<br>
 - https://docs.docker.com/<br>
 - https://docs.celeryq.dev/<br>
 
-<h2>Inicializando o projeto:</h2>
-<h3>Obs.: O projeto foi desenvolvido até o requisito 5.</h3>
+<h2>Inicializando o projeto:</h2><br>
 - Clone o repositório: git clone git@github.com:rafawildfire42/fastapi-usermanagement.git<br>
 - Pode ser necessário autenticação por ssh (https://docs.github.com/pt/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)<br>
 - Execute o comando: <br>
